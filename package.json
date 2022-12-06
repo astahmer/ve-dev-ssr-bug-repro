@@ -1,8 +1,10 @@
 {
+  "name": "ve-vps-dev-ssr-repro",
   "scripts": {
-    "dev": "npm run server",
-    "prod": "npm run build && npm run server:prod",
-    "build": "vite build",
+    "dev": "pnpm run server",
+    "prod": "pnpm run build && pnpm run server:prod",
+    "build": "NODE_ENV=production vite build",
+    "preview": "NODE_ENV=production vite preview",
     "server": "ts-node ./server",
     "server:prod": "cross-env NODE_ENV=production ts-node ./server"
   },
@@ -12,6 +14,9 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
+    "@vanilla-extract/css": "^1.9.2",
+    "@vanilla-extract/sprinkles": "^1.5.1",
+    "@vanilla-extract/vite-plugin": "^3.7.0",
     "@vitejs/plugin-react": "^2.0.1",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
@@ -23,5 +28,10 @@
     "typescript": "^4.6.4",
     "vite": "^3.0.9",
     "vite-plugin-ssr": "^0.4.54"
+  },
+  "devDependencies": {
+    "@vanilla-extract/integration": "^6.0.1",
+    "outdent": "^0.8.0",
+    "vite-plugin-inspect": "^0.7.9"
   }
 }

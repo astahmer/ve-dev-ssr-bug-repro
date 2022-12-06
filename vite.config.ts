@@ -1,9 +1,16 @@
-import react from '@vitejs/plugin-react'
-import ssr from 'vite-plugin-ssr/plugin'
-import { UserConfig } from 'vite'
+import react from "@vitejs/plugin-react";
+import ssr from "vite-plugin-ssr/plugin";
+import { UserConfig } from "vite";
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import Inspect from "vite-plugin-inspect";
 
 const config: UserConfig = {
-  plugins: [react(), ssr()]
-}
+  plugins: [
+    Inspect(),
+    react(),
+    ssr({ includeAssetsImportedByServer: true }),
+    vanillaExtractPlugin({ identifiers: "debug" }),
+  ],
+};
 
-export default config
+export default config;
