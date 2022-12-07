@@ -174,12 +174,20 @@ export function vanillaExtractPlugin({
         filePath: validId,
         identOption,
         serializeVirtualCssPath: async ({ fileScope, source }) => {
-          const rootRelativeId = `${fileScope.filePath}${
+          const buggyRootRelativeId = `${fileScope.filePath}${
             config.command === "build" || (ssr && forceEmitCssInSsrBuild)
               ? virtualExtCss
               : virtualExtJs
           }`;
+          const rootRelativeId = `${fileScope.filePath}${virtualExtCss}`;
           const absoluteId = getAbsoluteVirtualFileId(rootRelativeId);
+          console.log({
+            rootRelativeId,
+            buggyRootRelativeId,
+            ssr,
+            forceEmitCssInSsrBuild,
+            command: config.command,
+          });
 
           let cssSource = source;
 
