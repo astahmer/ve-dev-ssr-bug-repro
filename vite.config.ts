@@ -10,7 +10,10 @@ const config: UserConfig = {
     Inspect(),
     react(),
     ssr({ includeAssetsImportedByServer: true }),
-    vanillaExtractPlugin({ identifiers: "debug" }),
+    vanillaExtractPlugin({
+      identifiers: "debug",
+      forceEmitCssInSsrBuild: true,
+    }),
   ],
 };
 
