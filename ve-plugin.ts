@@ -31,7 +31,7 @@ export function vanillaExtractPlugin({
   let server: ViteDevServer;
   const cssMap = new Map<string, string>();
 
-  let forceEmitCssInSsrBuild: boolean = !!process.env.VITE_RSC_BUILD;
+  let forceEmitCssInSsrBuild: boolean = !!process.env.VITE_RSC_BUILD || true;
   let packageName: string;
 
   const getAbsoluteVirtualFileId = (source: string) =>
